@@ -93,11 +93,6 @@ const SigninForm = () => {
             Sign In
           </button>
 
-          <span>
-            Not have account,{" "}
-            <button onClick={() => navigate("/signup")}>create here</button>
-          </span>
-
           {error && <span className="error">{error.message}</span>}
         </div>
       </form>
