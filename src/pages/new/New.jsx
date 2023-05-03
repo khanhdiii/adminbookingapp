@@ -31,7 +31,10 @@ const New = ({ inputs, title }) => {
         img: url,
       };
 
-      await axios.post("/auth/signup", newUser);
+      await axios.post(
+        "https://bookingapiv1.onrender.com/api/auth/signup",
+        newUser
+      );
     } catch (err) {
       console.log(err);
     }
