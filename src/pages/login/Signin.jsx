@@ -27,10 +27,13 @@ const SigninForm = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN" });
     try {
-      const res = await axios.post("/auth/signin", {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        "https://bookingapiv1.onrender.com/api/auth/signin",
+        {
+          username,
+          password,
+        }
+      );
       if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
         localStorage.setItem("user", JSON.stringify(res.data.details));
