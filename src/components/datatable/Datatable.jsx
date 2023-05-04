@@ -16,6 +16,8 @@ const Datatable = ({ columns }) => {
     if (data) setList(data);
   }, [data]);
 
+  console.log(data);
+
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/${path}/${id}`);
