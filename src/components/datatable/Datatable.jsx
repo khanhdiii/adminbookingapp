@@ -19,7 +19,7 @@ const Datatable = ({ columns }) => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/${path}/${id}`);
-      setList(list.filter((item) => item._id !== id));
+      setList(list.filter((item) => item._id !== undefined));
     } catch (err) {}
   };
 
@@ -60,7 +60,7 @@ const Datatable = ({ columns }) => {
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
-        getRowId={(row) => row.internalId}
+        getRowId={(row) => row._id}
       />
     </div>
   );
