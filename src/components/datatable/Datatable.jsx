@@ -22,7 +22,7 @@ const Datatable = ({ columns }) => {
       setList(list.filter((item) => item._id !== undefined));
     } catch (err) {}
   };
-  console.log(list);
+
   const actionColumn = [
     {
       field: "action",
