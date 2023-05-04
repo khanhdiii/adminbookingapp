@@ -36,10 +36,9 @@ const SigninForm = () => {
       );
       if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-        localStorage.setItem("user", JSON.stringify(res.data.details));
-        // localStorage.setItem("access_token", res.data.access_token);
+
         navigate("/");
-        window.location.reload();
+        // window.location.reload();
       } else {
         dispatch({
           type: "LOGIN_FAIL",
