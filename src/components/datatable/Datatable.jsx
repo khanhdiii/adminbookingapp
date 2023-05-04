@@ -16,15 +16,13 @@ const Datatable = ({ columns }) => {
     if (data) setList(data);
   }, [data]);
 
-  console.log(data);
-
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== undefined));
     } catch (err) {}
   };
-
+  console.log(list);
   const actionColumn = [
     {
       field: "action",
