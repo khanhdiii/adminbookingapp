@@ -12,13 +12,13 @@ import { AuthContext } from "./context/AuthContext";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 import NewHotel from "./pages/newhotel/NewHotel";
 import NewRoom from "./pages/newroom/NewRoom";
+import { useSelector } from "react-redux";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
   const ProtectedRoute = ({ children }) => {
-    const { user } = useContext(AuthContext)
-
+    const user = useSelector((state => state.auth.login.currentUser))
     if (!user) {
       return <Navigate to="/signin" />
     }
