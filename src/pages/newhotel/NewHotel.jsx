@@ -39,8 +39,12 @@ const NewHotel = ({ inputs }) => {
             data
           );
 
-          const { url } = uploadRes.data;
-          return url;
+          let { secure_url } = uploadRes.data;
+          if (!secure_url.startsWith("https://")) {
+            secure_url = secure_url.replace("http://", "https://");
+          }
+
+          return secure_url;
         })
       );
 
@@ -78,7 +82,8 @@ const NewHotel = ({ inputs }) => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Image:{" "}
+                  <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
